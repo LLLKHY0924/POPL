@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.popl.mapper.WU05Mapper">
+  	
+  	<insert id="insert">
+		INSERT INTO
+			POPL_BOARD (
+						  SEQ
+						, TYPE_CD
+						, TYPE_TXT
+						, CTGR_CD
+						, CTGR_TXT
+						, TITLE
+						, CONTENT
+						, REG_ID
+						, REG_DT
+						) 
+				VALUES (
+						  POPL_BOARD_SEQ.NEXTVAL
+						, #{type_cd}
+						, #{type_txt}
+						, #{ctgr_cd}
+						, #{ctgr_txt}
+						, #{title}
+						, #{content}
+						, #{reg_id}
+						, sysdate
+						)  	
+  	</insert>
+  	
+  	<select id="list" resultType="com.popl.vo.BoardVO">
+  		SELECT *
+  			FROM POPL_BOARD
+  			WHERE TYPE_CD = 'B0002'
+  	</select>
+  </mapper>
